@@ -21,6 +21,23 @@ void show_pointer(void *x) {
     show_bytes((byte_pointer) &x, sizeof(void *));
 }
 
+// 2.27 start
+
+void show_short(short x) {
+    show_bytes((byte_pointer) &x, sizeof(short));
+}
+
+void show_long(long x) {
+    show_bytes((byte_pointer) &x, sizeof(long));
+}
+
+void show_double(double x) {
+    show_bytes((byte_pointer) &x, sizeof(double));
+}
+
+// 2.27 end
+
+
 int main() {
     int x = 100;
 
@@ -41,6 +58,16 @@ int main() {
      * pointer: 0xABCDEF0123456789
      */
     show_pointer(&x);
+
+    // 2.27 start
+
+    show_short((short)x);
+
+    show_long((long)x);
+
+    show_double((double)x);
+
+    // 2.27 end
 
     return 0;
 }
