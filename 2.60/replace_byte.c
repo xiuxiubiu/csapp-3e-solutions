@@ -7,6 +7,7 @@ unsigned bit_replace_byte(unsigned x, int i, unsigned char b);
 int main() {
     printf("%0.8X, %0.8X\n", replace_byte(0x12345678, 2, 0xAB), replace_byte(0x12345678, 0, 0xAB));
     printf("%0.8X, %0.8X\n", bit_replace_byte(0x12345678, 2, 0xAB), bit_replace_byte(0x12345678, 0, 0xAB));
+    return 0;
 }
 
 int is_little_endian() {
