@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-#include <limits.h>
 
 int A(int x) {
     return !~x;
