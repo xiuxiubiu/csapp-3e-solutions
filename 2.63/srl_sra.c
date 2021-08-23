@@ -77,11 +77,11 @@ int main() {
     assert(sra(test_int, 4) == test_int >> 4);
 
     test_unsigned = 0x87654321;
-	test_int = 0x87654321;
+    test_int = 0x87654321;
 
-	assert(srl(test_unsigned, 4) == test_unsigned >> 4);
+    assert(srl(test_unsigned, 4) == test_unsigned >> 4);
     assert(srl_new(test_unsigned, 4) == test_unsigned >> 4);
-	assert (sra (test_int, 4) == test_int >> 4);
+    assert (sra (test_int, 4) == test_int >> 4);
 
     return 0;
 }
