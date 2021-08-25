@@ -23,7 +23,7 @@ int main() {
 }
 
 int xbyte(packed_t word, int bytenum) {
-    int w = sizeof(packed_t) - 1;
+    int byte_width = 3;
     
     /**
      * (word << ((w - bytenum) << 3) >> (w << 3))
@@ -35,5 +35,5 @@ int xbyte(packed_t word, int bytenum) {
      * 
      * 将两次结果取或即为保留word指定字节并根据word最高位判断正负生成的int
     */
-    return (word << ((w - bytenum) << 3) >> (w << 3)) | (((int) word >> (w << 3)) & ~0xFF);
+    return (word << ((byte_width - bytenum) << 3) >> (byte_width << 3)) | (((int) word >> (byte_width << 3)) & ~0xFF);
 }
