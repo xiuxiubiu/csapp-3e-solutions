@@ -6,28 +6,26 @@ _switch_prob:                           ## @switch_prob
 	.cfi_startproc
 ## %bb.0:
 	movq	%rdi, %rax
-	leaq	-61(%rsi), %rcx
-	cmpq	$4, %rcx
-	ja	LBB0_6
+	addq	$-60, %rsi
+	cmpq	$5, %rsi
+	ja	LBB0_5
 ## %bb.1:
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
-	leaq	LJTI0_0(%rip), %rdx
-	movslq	(%rdx,%rcx,4), %rcx
-	addq	%rdx, %rcx
+	leaq	LJTI0_0(%rip), %rcx
+	movslq	(%rcx,%rsi,4), %rdx
+	addq	%rcx, %rdx
 	popq	%rbp
-	jmpq	*%rcx
+	jmpq	*%rdx
 LBB0_2:
 	sarq	$3, %rax
 	retq
-LBB0_6:
-	shlq	$3, %rax
-	retq
 LBB0_3:
-	movq	%rsi, %rax
+	leaq	(%rax,%rax,4), %rax
+	leaq	(%rax,%rax,2), %rax
 LBB0_4:
 	imulq	%rax, %rax
 LBB0_5:
@@ -36,14 +34,14 @@ LBB0_5:
 	.cfi_endproc
 	.p2align	2, 0x90
 	.data_region jt32
-.set L0_0_set_5, LBB0_5-LJTI0_0
-.set L0_0_set_6, LBB0_6-LJTI0_0
 .set L0_0_set_2, LBB0_2-LJTI0_0
+.set L0_0_set_5, LBB0_5-LJTI0_0
 .set L0_0_set_3, LBB0_3-LJTI0_0
 .set L0_0_set_4, LBB0_4-LJTI0_0
 LJTI0_0:
+	.long	L0_0_set_2
 	.long	L0_0_set_5
-	.long	L0_0_set_6
+	.long	L0_0_set_2
 	.long	L0_0_set_2
 	.long	L0_0_set_3
 	.long	L0_0_set_4

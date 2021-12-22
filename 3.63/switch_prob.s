@@ -25,11 +25,11 @@
 4005b2: 48 89 f8                mov  %rdi, %rax ; result = x
 4005b5: 48 c1 e0 04             shl  $0x4, %rax ; result = result << 4
 4005b9: 48 29 f8                sub  %rdi, %rax ; result = result - x
-4005bc: 48 89 c7                mov  %rax, %rdi ; x = n
+4005bc: 48 89 c7                mov  %rax, %rdi ; x = result
 
 ; n = 65
 4005bf: 48 0f af ff             imul %rdi, %rdi ; x = x*x
 
-; n = 61
+; default
 4005c3: 48 8d 47 4b             lea  $0x4b(%rdi), %rax   ; result = x+0x4b
 4005c7: c3                      retq    ; return result
